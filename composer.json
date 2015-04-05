@@ -13,6 +13,9 @@
     }
   ],
   "autoload": {
+    "classmap": [
+      "facades/"
+    ],
     "psr-4": {
       "React\\": "lib/"
     }
