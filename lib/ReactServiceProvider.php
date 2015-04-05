@@ -20,7 +20,7 @@ class ReactServiceProvider extends ServiceProvider {
 
   public function register() {
     $this->app->bind('React', function() {
-      return new React\React();
+      return new React();
     });
 	}
 }
