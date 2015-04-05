@@ -1,0 +1,14 @@
+{
+    "name": "talyssonoc/react-laravel",
+    "description": "Package to use ReactJS with Laravel",
+    "require": {
+        "illuminate/support": "~5.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "talyssonoc",
+            "email": "talyssonoc@gmail.com"
+        }
+    ]
+}
