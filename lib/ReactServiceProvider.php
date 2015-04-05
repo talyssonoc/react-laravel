@@ -13,7 +13,7 @@ class ReactServiceProvider extends ServiceProvider {
 		});
 
     $this->publishes([
-        __DIR__ . '/assets' => public_path('vendor/react-laravel'),
+        __DIR__ . '/../assets' => public_path('vendor/react-laravel'),
     ]);
 
   }
