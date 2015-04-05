@@ -15,6 +15,11 @@ class ReactServiceProvider extends ServiceProvider {
     $this->publishes([
         __DIR__ . '/assets' => public_path('vendor/react-laravel'),
     ]);
+
+    $this->app->booting(function() {
+        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $loader->alias('React', 'React\React');
+    });
 	}
 
 	public function register() {
