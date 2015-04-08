@@ -1,6 +1,6 @@
 <?php namespace React;
 
-  require 'vendor/autoload.php';
+  require '../vendor/autoload.php';
 
   class React {
     private $react;
