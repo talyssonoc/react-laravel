@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 class ReactServiceProvider extends ServiceProvider {
 
 	public function boot() {
+
 		Blade::extend(function($view, $compiler) {
 		    $pattern = $compiler->createMatcher('react_component');
 
@@ -19,8 +20,12 @@ class ReactServiceProvider extends ServiceProvider {
   }
 
   public function register() {
+
+    $reactSource = file_get_contents(Config::get('app.react.source'));
+    $componentsSource = file_get_contents(Config::get('app.react.components'));
+
     $this->app->bind('React', function() {
-      return new React();
+      return new React($reactSource, $componentsSource);
     });
 	}
 }
