@@ -1,11 +1,11 @@
 <?php namespace React;
 
+  require '../vendor/autoload.php';
 
   class React {
     private $react;
 
     public function __construct($reactSource, $componentsSource) {
-      require '../vendor/autoload.php';
       $this->react = new ReactJS($reactSource, $componentsSource);
     }
 
