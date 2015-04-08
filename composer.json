@@ -31,7 +31,7 @@
           "type": "zip"
         },
         "autoload": {
-          "files": ["ReactJS.php"]
+          "classmap": ["ReactJS.php"]
         },
         "require": {
           "ext-v8js": ">=0.1.3"
