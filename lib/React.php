@@ -1,5 +1,7 @@
 <?php namespace React;
 
+  require __DIR__ . '/../vendor/autoload.php';
+
   class React {
     private $react;
 
