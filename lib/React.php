@@ -6,7 +6,7 @@
     private $react;
 
     public function __construct($reactSource, $componentsSource) {
-      $this->react = new ReactJS($reactSource, $componentsSource);
+      $this->react = new \ReactJS($reactSource, $componentsSource);
     }
 
     public function render($component, $props = [], $options = []) {
