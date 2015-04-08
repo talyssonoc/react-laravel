@@ -23,7 +23,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/talyssonoc/react-php-v8js"
+      "url": "https://github.com/reactjs/react-php-v8js"
     }
   ]
 }

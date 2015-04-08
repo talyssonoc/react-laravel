@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6462c06441b8597069cf945b33d7c0e2",
+    "hash": "6dc1e55971d89586ab1478ab62716f05",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -227,13 +227,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/talyssonoc/react-php-v8js.git",
-                "reference": "013b97c90352ac66eef14b0d637619b7d5faeb81"
+                "url": "https://github.com/reactjs/react-php-v8js.git",
+                "reference": "982464be7f11d3bd665e5e25a4e9ff73f3fb8892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/talyssonoc/react-php-v8js/zipball/013b97c90352ac66eef14b0d637619b7d5faeb81",
-                "reference": "013b97c90352ac66eef14b0d637619b7d5faeb81",
+                "url": "https://api.github.com/repos/reactjs/react-php-v8js/zipball/982464be7f11d3bd665e5e25a4e9ff73f3fb8892",
+                "reference": "982464be7f11d3bd665e5e25a4e9ff73f3fb8892",
                 "shasum": ""
             },
             "require": {
@@ -246,13 +246,14 @@
                 ]
             },
             "license": [
-                "BSD"
+                "BSD-3-Clause"
             ],
             "description": "PHP library that renders React components on the server",
             "support": {
-                "source": "https://github.com/talyssonoc/react-php-v8js/tree/master"
+                "source": "https://github.com/reactjs/react-php-v8js/tree/master",
+                "issues": "https://github.com/reactjs/react-php-v8js/issues"
             },
-            "time": "2015-04-08 17:17:37"
+            "time": "2015-04-08 19:03:53"
         }
     ],
     "packages-dev": [],
