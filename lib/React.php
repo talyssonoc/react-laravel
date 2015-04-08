@@ -15,11 +15,12 @@
         $this->react->setComponent($component, $props);
         $markup = $this->react->getMarkup();
       }
+      else {
+        $markup = '';
+      }
 
       $props = json_encode($props);
 
-      return "<div data-react-class='{$component}' data-react-props='{$props}'>
-                {$markup}
-              </div>";
+      return "<div data-react-class='{$component}' data-react-props='{$props}'>{$markup}</div>";
     }
   }
