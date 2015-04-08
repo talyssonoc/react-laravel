@@ -1,17 +1,17 @@
 <?php namespace React;
 
-  require '../vendor/autoload.php';
 
   class React {
     private $react;
 
     public function __construct($reactSource, $componentsSource) {
+      require '../vendor/autoload.php';
       $this->react = new ReactJS($reactSource, $componentsSource);
     }
 
     public function render($component, $props = [], $options = []) {
 
-      if(isset($options['prerender'])) {
+      if(isset($options['prerender']) && $options['prerender'] === true) {
         $this->react->setComponent($component, $props);
         $markup = $this->react->getMarkup();
       }
