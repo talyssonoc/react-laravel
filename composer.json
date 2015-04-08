@@ -3,7 +3,7 @@
   "description": "Package to use ReactJS with Laravel",
   "require": {
     "illuminate/support": "~5.0",
-    "reactjs/react-php-v8js": "*"
+    "reactjs/react-php-v8js": "dev-master"
   },
   "license": "MIT",
   "authors": [
@@ -22,21 +22,8 @@
   },
   "repositories": [
     {
-      "type": "package",
-      "package": {
-        "name": "reactjs/react-php-v8js",
-        "version": "0.0.1",
-        "dist": {
-          "url": "https://github.com/reactjs/react-php-v8js/archive/master.zip",
-          "type": "zip"
-        },
-        "autoload": {
-          "classmap": ["ReactJS.php"]
-        },
-        "require": {
-          "ext-v8js": ">=0.1.3"
-        }
-      }
+      "type": "vcs",
+      "url": "https://github.com/talyssonoc/react-php-v8js"
     }
   ]
 }

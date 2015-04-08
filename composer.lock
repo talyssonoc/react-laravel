@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2cc42e671ddf2f7359d52a615db44af3",
+    "hash": "6462c06441b8597069cf945b33d7c0e2",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -224,28 +224,43 @@
         },
         {
             "name": "reactjs/react-php-v8js",
-            "version": "0.0.1",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/talyssonoc/react-php-v8js.git",
+                "reference": "013b97c90352ac66eef14b0d637619b7d5faeb81"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/reactjs/react-php-v8js/archive/master.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://api.github.com/repos/talyssonoc/react-php-v8js/zipball/013b97c90352ac66eef14b0d637619b7d5faeb81",
+                "reference": "013b97c90352ac66eef14b0d637619b7d5faeb81",
+                "shasum": ""
             },
             "require": {
                 "ext-v8js": ">=0.1.3"
             },
             "type": "library",
             "autoload": {
-                "files": [
+                "classmap": [
                     "ReactJS.php"
                 ]
-            }
+            },
+            "license": [
+                "BSD"
+            ],
+            "description": "PHP library that renders React components on the server",
+            "support": {
+                "source": "https://github.com/talyssonoc/react-php-v8js/tree/master"
+            },
+            "time": "2015-04-08 17:17:37"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "reactjs/react-php-v8js": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
