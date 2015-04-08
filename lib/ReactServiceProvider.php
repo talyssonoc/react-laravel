@@ -22,10 +22,9 @@ class ReactServiceProvider extends ServiceProvider {
 
   public function register() {
 
-    $reactSource = file_get_contents(Config::get('app.react.source'));
-    $componentsSource = file_get_contents(Config::get('app.react.components'));
-
     $this->app->bind('React', function() {
+      $reactSource = file_get_contents(Config::get('app.react.source'));
+      $componentsSource = file_get_contents(Config::get('app.react.components'));
       return new React($reactSource, $componentsSource);
     });
 	}
