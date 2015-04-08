@@ -5,7 +5,14 @@
     PROPS_ATTR: 'data-react-props',
 
     getElements: function getElements() {
-      var finder = jQuery || document.querySelectorAll;
+      var finder = function finder(selector) {
+        if(typeof jQuery === 'undefined') {
+          return document.querySelectorAll(selector);
+        }
+        else {
+          return jQuery(selector);
+        }
+      };
 
       return finder('[' + ReactLaravelUJS.CLASS_NAME_ATTR + ']');
     },
