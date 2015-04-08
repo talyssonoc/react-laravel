@@ -19,11 +19,5 @@
     "psr-4": {
       "React\\": "lib/"
     }
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/reactjs/react-php-v8js"
-    }
-  ]
+  }
 }
