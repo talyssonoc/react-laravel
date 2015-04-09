@@ -18,6 +18,12 @@ Also you got to set the `minimum-stability` of your `composer.json` to `dev`, ad
   "minimum-stability": "dev"
 ```
 
+Then run:
+
+```sh
+  $ composer update
+```
+
 After that you should add `'React\ReactServiceProvider'` to your providers at the `config/app.php` file of your Laravel app.
 
 It's important to know that `react-laravel` has an indirect dependency of the [v8js](https://pecl.php.net/package/v8js) PHP extension.
