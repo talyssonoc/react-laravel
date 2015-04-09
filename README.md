@@ -47,7 +47,7 @@ After the installation and configuration, you'll be able to use the `@react_comp
 The `@react_component` directive accepts 3 arguments:
 
 ```php
-  @react_component(&lt;componentName&gt;[, &lt;props&gt;, &lt;options&gt;])
+  @react_component(<componentName>[, props, options])
 
   //example
   @react_component('Message', [ 'title' => 'Hello, World' ], [ 'prerender' => true ])
