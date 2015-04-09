@@ -6,22 +6,28 @@ With `react-laravel` you'll be able to use [ReactJS](https://facebook.github.io/
 
 # Installation
 
-You just need to add this to your `composer.json`'s `"require"` and then run `composer install`:
+You just need to add this to your `composer.json`'s `"require"`:
 
 ```json
   "talyssonoc/react-laravel": "dev-master"`
+```
+
+Also you got to set the `minimum-stability` of your `composer.json` to `dev`, adding this:
+
+```json
+  "minimum-stability": "dev"
 ```
 
 After that you should add `'React\ReactServiceProvider'` to your providers at the `config/app.php` file of your Laravel app.
 
 It's important to know that `react-laravel` has an indirect dependency of the [v8js](https://pecl.php.net/package/v8js) PHP extension.
 
-##### Install v8js on Linux
+##### Install v8js on Linux (works with [Homestead](http://laravel.com/docs/5.0/homestead))
 
 First run:
 
 ```sh
-  $ sudo apt-get install libv8-dev libv8-dbg g++ cpp
+  $ sudo apt-get install libv8-dev g++
   $ sudo pecl install v8js-0.1.3
 ```
 
@@ -68,6 +74,14 @@ You must include `react.js` and `react_ujs.js` (in this order) in your view.
 
 ```sh
   $ php artisan vendor:publish --force
+```
+
+For using the files provided by `react-laravel` and your `components.js` file, add this to your view:
+
+```html
+  <script src="{{ asset('vendor/react-laravel/react.js') }}"></script>
+  <script src="{{ asset('js/components.js') }}"></script>
+  <script src="{{ asset('vendor/react-laravel/react_ujs.js') }}"></script>
 ```
 
 You can choose to use any React installation greater than `v0.13.1`, but if you'll use a different version from the one provided by react-laravel, you got to configure it (see bellow).
