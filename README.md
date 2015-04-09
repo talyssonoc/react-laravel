@@ -21,7 +21,8 @@ It's important to know that `react-laravel` has an indirect dependency of the [v
 First run:
 
 ```sh
-  $ sudo pecl install v8js-beta
+  $ sudo apt-get install libv8-dev libv8-dbg g++ cpp
+  $ sudo pecl install v8js-0.1.3
 ```
 
 Then add `extension=v8js.so` to your `php.ini` file.
