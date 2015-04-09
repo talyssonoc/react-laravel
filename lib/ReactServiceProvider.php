@@ -24,15 +24,11 @@ class ReactServiceProvider extends ServiceProvider {
 
     $this->app->bind('React', function() {
       
-      $defaultReactPath = App::publicPath()
-                          . DIRECTORY_SEPARATOR
-                          . implode(DIRECTORY_SEPARATOR,
-                                    ['vendor', 'react-laravel', 'react.js']);
+      $defaultReactPath = implode(DIRECTORY_SEPARATOR,
+                                  [App::publicPath(), 'vendor', 'react-laravel', 'react.js']);
 
-      $defaultComponentsPath = App::publicPath()
-                              . DIRECTORY_SEPARATOR
-                              . implode(DIRECTORY_SEPARATOR,
-                                ['js', 'components.js']);
+      $defaultComponentsPath = implode(DIRECTORY_SEPARATOR,
+                                [App::publicPath(), 'js', 'components.js']);
 
       $reactPath = Config::get('app.react.source', $defaultReactPath);
       $componentsPath = Config::get('app.react.components', $defaultComponentsPath);
