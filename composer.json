@@ -1,14 +1,15 @@
 {
   "name": "talyssonoc/react-laravel",
   "description": "Package to use ReactJS with Laravel",
+  "license": "MIT",
+  "keywords": ["react", "reactjs", "laravel"],
   "require": {
     "illuminate/support": "~5.0",
     "reactjs/react-php-v8js": "dev-master"
   },
-  "license": "MIT",
   "authors": [
     {
-      "name": "talyssonoc",
+      "name": "Talysson Oliveira",
       "email": "talyssonoc@gmail.com"
     }
   ],
@@ -19,5 +20,6 @@
     "psr-4": {
       "React\\": "lib/"
     }
-  }
+  },
+  "minimum-stability": "dev"
 }
