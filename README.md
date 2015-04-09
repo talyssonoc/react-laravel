@@ -76,7 +76,7 @@ You can choose to use any React installation greater than `v0.13.1`, but if you'
 You can add settings to `react-laravel` adding this to your `config/app.php` file:
 
 ```php
-  `react` => [
+  'react' => [
     'source' => 'path_for_react.js',
     'components' => 'path_for_file_containing_your_components.js'
   ]
