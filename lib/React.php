@@ -15,7 +15,6 @@
     }
 
     public function render($component, $props = [], $options = []) {
-
       $options = array_merge($this->defaultOptions, $options);
 
       if($options['prerender'] === true) {
@@ -26,7 +25,7 @@
         $markup = '';
       }
 
-      $props = json_encode($props);
+      $props = htmlentities(json_encode($props), ENT_QUOTES);
       $tag = $options['tag'];
 
       return "<{$tag} data-react-class='{$component}' data-react-props='{$props}'>{$markup}</{$tag}>";
