@@ -8,7 +8,7 @@
     "reactjs/react-php-v8js": "dev-master"
   },
   "require-dev": {
-      "phpunit/phpunit": "3.7.*"
+      "phpunit/phpunit": "~4.0.0@stable"
   },
   "authors": [
     {

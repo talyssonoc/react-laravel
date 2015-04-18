@@ -1,5 +1,9 @@
 <?php
 
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+
 // Requires the Composer's autoload
 require __DIR__ . '/vendor/autoload.php';
 
@@ -9,7 +13,8 @@ $GLOBALS['componentsSource'] = file_get_contents(__DIR__ . '/tests/fixtures/comp
 class TestHelpers {
 
   public static function stringToElement($string) {
-    $document = DOMDocument::loadHTML($string, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+    $document = new DOMDocument();
+    $document->loadHTML($string, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
     $element = $document->childNodes->item(0);
 
     return $element;
