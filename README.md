@@ -9,7 +9,7 @@ With `react-laravel` you'll be able to use [ReactJS](https://facebook.github.io/
 You just need to add this to your `composer.json`'s `"require"`:
 
 ```json
-  "talyssonoc/react-laravel": "0.3"`
+  "talyssonoc/react-laravel": "0.4"`
 ```
 
 Also you got to set the `minimum-stability` of your `composer.json` to `dev`, adding this:
@@ -69,8 +69,9 @@ The `@react_component` directive accepts 3 arguments:
 * `componentName`: Is the name of the global variable that holds your component.
 * `props`: Associative of the `props` that'll be passed to your component
 * `options`: Associative array of options that you can pass to the `react-laravel`:
-  * `prerender`: Tells react-laravel to render your component server-side too and then just _mount_ it on the client-side. Default to __true__.
+  * `prerender`: Tells react-laravel to render your component server-side, and then just _mount_ it on the client-side. Default to __true__.
   * `tag`: The tag of the element that'll hold your component. Default to __'div'__.
+  * _html attributes_: Any other valid HTML attribute that will be added to the wrapper element of your component. Example: `'id' => 'my_component'`.
 
 All your components should be inside `public/js/components.js` (you can configure it, see below) and be global.
 
@@ -109,3 +110,7 @@ Both of then are optional.
 * `components`: defaults to `public/js/components.js`
 
 Your `components.js` file should also be included at your view, and all your components must be at the `window` object.
+
+# Thanks
+
+This package is inspired at [react-rails](https://github.com/reactjs/react-rails).

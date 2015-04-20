@@ -37,9 +37,16 @@
         $markup = '';
       }
 
-      $props = htmlentities(json_encode($props), ENT_QUOTES);
       $tag = $options['tag'];
+      $props = htmlentities(json_encode($props), ENT_QUOTES);
 
-      return "<{$tag} data-react-class='{$component}' data-react-props='{$props}'>{$markup}</{$tag}>";
+      // Gets all values that aren't used as options and map it as HTML attributes
+      $htmlAttributes = array_diff_key($options, $this->defaultOptions);
+      $htmlAttributesString = '';
+      foreach ($htmlAttributes as $attribute => $value) {
+        $htmlAttributesString .= "{$attribute}='{$value}'";
+      }
+
+      return "<{$tag} data-react-class='{$component}' data-react-props='{$props}' {$htmlAttributesString}>{$markup}</{$tag}>";
     }
   }

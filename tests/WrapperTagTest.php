@@ -56,4 +56,23 @@ class WrapperTagTest extends PHPUnit_Framework_TestCase {
 
     $this->assertEquals('span', $element->tagName);
   }
+
+  public function testHTMLAttributes() {
+
+    $attributes = [
+      'id' => 'react-laravel',
+      'class' => 'react_laravel_class',
+      'tag' => 'span'
+    ];
+
+    $elementString = $this->react->render('Alert', null, $attributes);
+    
+    $element = TestHelpers::stringToElement($elementString);
+
+    $this->assertTrue($element->hasAttributes());
+    $this->assertEquals('react-laravel', $element->getAttribute('id'));
+    $this->assertEquals('react_laravel_class', $element->getAttribute('class'));
+    $this->assertEquals('', $element->getAttribute('tag'));
+    $this->assertEquals('', $element->getAttribute('prerender'));
+  }
 }
