@@ -1,5 +1,7 @@
 <?php namespace React;
 
+require '../vendor/autoload.php';
+
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
