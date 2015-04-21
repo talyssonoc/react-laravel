@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/talyssonoc/react-laravel/badges/gpa.svg)](https://codeclimate.com/github/talyssonoc/react-laravel)
+[![Code Climate](https://codeclimate.com/github/talyssonoc/react-laravel/badges/gpa.svg)](https://codeclimate.com/github/talyssonoc/react-laravel) [![Build Status](https://travis-ci.org/talyssonoc/react-laravel.svg?branch=master)](https://travis-ci.org/talyssonoc/react-laravel)
 
 # react-laravel
 
@@ -9,7 +9,7 @@ With `react-laravel` you'll be able to use [ReactJS](https://facebook.github.io/
 You just need to add this to your `composer.json`'s `"require"`:
 
 ```json
-  "talyssonoc/react-laravel": "0.5"
+  "talyssonoc/react-laravel": "0.6"
 ```
 
 Also you got to set the `minimum-stability` of your `composer.json` to `dev`, adding this:
