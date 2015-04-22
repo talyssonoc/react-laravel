@@ -9,7 +9,7 @@ With `react-laravel` you'll be able to use [ReactJS](https://facebook.github.io/
 You just need to add this to your `composer.json`'s `"require"`:
 
 ```json
-  "talyssonoc/react-laravel": "0.6"
+  "talyssonoc/react-laravel": "0.5"
 ```
 
 Also you got to set the `minimum-stability` of your `composer.json` to `dev`, adding this:
