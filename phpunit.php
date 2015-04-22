@@ -33,7 +33,7 @@ class TestHelpers {
     if($node->hasAttributes()) {
       $attributes = $node->attributes;
       foreach ($attributes as $i => $attr){
-        $newNode->removeAttribute($attr->name); 
+        $newNode->removeAttribute($attr->name);
       }
     }
 
@@ -47,5 +47,4 @@ class TestHelpers {
 
     return $newNode;
   }
-
 }
