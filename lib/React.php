@@ -27,6 +27,26 @@
     public function render($component, $props = null, $options = []) {
       $options = array_merge($this->defaultOptions, $options);
 
+      $componentMarkup = $this->getComponentMarkup($component, $props, $options);
+
+      $tag = $options['tag'];
+      $props = htmlentities(json_encode($props), ENT_QUOTES);
+
+      // Gets all values that aren't used as options and map it as HTML attributes
+      $htmlAttributes = array_diff_key($options, $this->defaultOptions);
+      $htmlAttributesString = $this->arrayToHTMLAttributes($htmlAttributes);
+
+      return "<{$tag} data-react-class='{$component}' data-react-props='{$props}' {$htmlAttributesString}>{$componentMarkup}</{$tag}>";
+    }
+
+    /**
+     * Creates the markup of the component
+     * @param  string $component Name of the component
+     * @param  array $props     Associative array of props
+     * @param  array $options   Associative array of options
+     * @return string            The markup of the component, without the wrapper element
+     */
+    private function getComponentMarkup($component, $props, $options) {
       if($options['prerender'] === true) {
         $this->react->setComponent($component, $props);
         $markup = $this->react->getMarkup();
@@ -35,16 +55,19 @@
         $markup = '';
       }
 
-      $tag = $options['tag'];
-      $props = htmlentities(json_encode($props), ENT_QUOTES);
+      return $markup;
+    }
 
-      // Gets all values that aren't used as options and map it as HTML attributes
-      $htmlAttributes = array_diff_key($options, $this->defaultOptions);
+    /**
+     * Convert associative array to string of HTML attributes
+     * @param  array $array Associative array of attributes
+     * @return string
+     */
+    private function arrayToHTMLAttributes($array) {
       $htmlAttributesString = '';
-      foreach ($htmlAttributes as $attribute => $value) {
+      foreach ($array as $attribute => $value) {
         $htmlAttributesString .= "{$attribute}='{$value}'";
       }
-
-      return "<{$tag} data-react-class='{$component}' data-react-props='{$props}' {$htmlAttributesString}>{$markup}</{$tag}>";
+      return $htmlAttributesString;
     }
   }
