@@ -1,7 +1,5 @@
 <?php namespace React;
 
-require '../vendor/autoload.php';
-
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
@@ -25,7 +23,7 @@ class ReactServiceProvider extends ServiceProvider {
   public function register() {
 
     $this->app->bind('React', function() {
-      
+
       $defaultReactPath = implode(DIRECTORY_SEPARATOR,
                                   [App::publicPath(), 'vendor', 'react-laravel', 'react.js']);
 
@@ -37,7 +35,7 @@ class ReactServiceProvider extends ServiceProvider {
 
       $reactSource = file_get_contents($reactPath);
       $componentsSource = file_get_contents($componentsPath);
-      
+
       return new React($reactSource, $componentsSource);
     });
   }
