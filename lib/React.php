@@ -1,5 +1,7 @@
 <?php namespace React;
 
+  require_once __DIR__ . '/../bootstrap.php';
+
   class React {
     private $react;
     private $defaultOptions;
