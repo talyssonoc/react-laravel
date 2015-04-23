@@ -1,6 +1,10 @@
 <?php namespace React;
 
-  require_once __DIR__ . '/../bootstrap.php';
+  // Fix PHPUnit issue with relative path for `autoload.php`
+  if(!defined('ENVIRONMENT') || ENVIRONMENT != 'test') {
+    require_once __DIR__ . '/../vendor/autoload.php';
+  }
+
 
   class React {
     private $react;
