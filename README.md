@@ -6,6 +6,14 @@ With `react-laravel` you'll be able to use [ReactJS](https://facebook.github.io/
 
 # Installation
 
+## V8js dependency
+
+It's important to know that `react-laravel` has an indirect dependency of the [v8js](https://pecl.php.net/package/v8js) PHP extension.
+
+You can see how to install it here: [how to install v8js](install_v8js.md).
+
+## Composer
+
 You just need to add this to your `composer.json`'s `"require"`:
 
 ```json
@@ -25,12 +33,6 @@ Then run:
 ```
 
 After that you should add `'React\ReactServiceProvider'` to your providers at the `config/app.php` file of your Laravel app.
-
-# V8js dependency
-
-It's important to know that `react-laravel` has an indirect dependency of the [v8js](https://pecl.php.net/package/v8js) PHP extension.
-
-You can see how to install it here: [how to install v8js](install_v8js.md);
 
 # Usage
 
