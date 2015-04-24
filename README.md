@@ -28,30 +28,7 @@ After that you should add `'React\ReactServiceProvider'` to your providers at th
 
 It's important to know that `react-laravel` has an indirect dependency of the [v8js](https://pecl.php.net/package/v8js) PHP extension.
 
-##### Install v8js on Linux (works with [Homestead](http://laravel.com/docs/5.0/homestead))
-
-First run:
-
-```sh
-  $ sudo apt-get install libv8-dev g++
-  $ sudo pecl install v8js-0.1.3
-```
-
-Then add `extension=v8js.so` to your `php.ini` file.
-
-##### Install v8js on a Mac
-
-Follow [this tutorial](http://www.phpied.com/installing-v8js-for-php-on-a-mac/).
-
-##### Install v8js on Windows
-
-You must have PHP 5.3/5.4/5.5 installed.
-
-Then access [this link](http://windows.php.net/downloads/pecl/snaps/v8js/0.1.3/) and download the zip for your PHP version (don't forget to check if your PHP installation is `ts` or `nts` and if your OS is x86 or x64).
-
-Unzip the file and paste the `v8.dll` file in your PHP installation folder, and `php_v8.dll` in your `php/ext` folder.
-
-Then add `extension=php_v8js.dll` to your `php.ini` file.
+You can see how to install it here: [how to install v8js](install_v8js.md);
 
 # Usage
 
