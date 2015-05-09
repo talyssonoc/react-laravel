@@ -4,6 +4,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Cache;
 
 class ReactServiceProvider extends ServiceProvider {
 
@@ -24,17 +25,33 @@ class ReactServiceProvider extends ServiceProvider {
 
     $this->app->bind('React', function() {
 
-      $defaultReactPath = implode(DIRECTORY_SEPARATOR,
-                                  [App::publicPath(), 'vendor', 'react-laravel', 'react.js']);
+      if(App::environment('production')
+        && Cache::has('reactSource')
+        && Cache::has('componentsSource')) {
 
-      $defaultComponentsPath = implode(DIRECTORY_SEPARATOR,
-                                [App::publicPath(), 'js', 'components.js']);
+        $reactSource = Cache::get('reactSource');
+        $componentsSource = Cache::get('componentsSource');
 
-      $reactPath = Config::get('app.react.source', $defaultReactPath);
-      $componentsPath = Config::get('app.react.components', $defaultComponentsPath);
+      }
+      else {
+        $defaultReactPath = implode(DIRECTORY_SEPARATOR,
+                                    [App::publicPath(), 'vendor', 'react-laravel', 'react.js']);
 
-      $reactSource = file_get_contents($reactPath);
-      $componentsSource = file_get_contents($componentsPath);
+        $defaultComponentsPath = implode(DIRECTORY_SEPARATOR,
+                                  [App::publicPath(), 'js', 'components.js']);
+
+        $reactPath = Config::get('app.react.source', $defaultReactPath);
+        $componentsPath = Config::get('app.react.components', $defaultComponentsPath);
+
+        $reactSource = file_get_contents($reactPath);
+        $componentsSource = file_get_contents($componentsPath);
+
+        if(App::environment('production')) {
+          Cache::forever('reactSource', $reactSource);
+          Cache::forever('componentsSource', $componentsSource);
+        }
+
+      }
 
       return new React($reactSource, $componentsSource);
     });
