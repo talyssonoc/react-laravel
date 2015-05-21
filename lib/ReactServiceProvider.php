@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Cache;
 
 class ReactServiceProvider extends ServiceProvider {
 
+  protected $defer = true;
+
   public function boot() {
 
     Blade::extend(function($view, $compiler) {
@@ -19,7 +21,7 @@ class ReactServiceProvider extends ServiceProvider {
     $this->publishes([
       __DIR__ . '/../assets'            => public_path('vendor/react-laravel'),
     ], 'assets');
-      
+
     $this->publishes([
       __DIR__ . '/../config/config.php' => config_path('react.php'),
     ], 'config');
@@ -54,4 +56,11 @@ class ReactServiceProvider extends ServiceProvider {
       return new React($reactSource, $componentsSource);
     });
   }
+
+  public function provides()
+  {
+    return ['React'];
+  }
+
+
 }
