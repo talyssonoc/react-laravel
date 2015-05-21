@@ -17,8 +17,12 @@ class ReactServiceProvider extends ServiceProvider {
     });
 
     $this->publishes([
-      __DIR__ . '/../assets' => public_path('vendor/react-laravel'),
-    ]);
+      __DIR__ . '/../assets'            => public_path('vendor/react-laravel'),
+    ], 'assets');
+      
+    $this->publishes([
+      __DIR__ . '/../config/config.php' => config_path('react.php'),
+    ], 'config');
   }
 
   public function register() {
@@ -34,17 +38,11 @@ class ReactServiceProvider extends ServiceProvider {
 
       }
       else {
-        $defaultReactPath = implode(DIRECTORY_SEPARATOR,
-                                    [App::publicPath(), 'vendor', 'react-laravel', 'react.js']);
 
-        $defaultComponentsPath = implode(DIRECTORY_SEPARATOR,
-                                  [App::publicPath(), 'js', 'components.js']);
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'react');
 
-        $reactPath = Config::get('app.react.source', $defaultReactPath);
-        $componentsPath = Config::get('app.react.components', $defaultComponentsPath);
-
-        $reactSource = file_get_contents($reactPath);
-        $componentsSource = file_get_contents($componentsPath);
+        $reactSource = file_get_contents(config('react.source'));
+        $componentsSource = file_get_contents(config('react.components'));
 
         if(App::environment('production')) {
           Cache::forever('reactSource', $reactSource);
