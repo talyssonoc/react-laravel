@@ -1,6 +1,6 @@
 <?php
 
 return [
-  'react'      => implode( DIRECTORY_SEPARATOR, [ App::publicPath(), 'vendor', 'react-laravel', 'react.js' ] ),
-  'components' => implode( DIRECTORY_SEPARATOR, [ App::publicPath(), 'js', 'components.js' ] ),
+  'source'     => public_path('vendor/react-laravel/react.js'),
+  'components' => public_path('js/components.js'),
 ];
