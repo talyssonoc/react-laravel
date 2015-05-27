@@ -41,7 +41,7 @@ class ReactServiceProvider extends ServiceProvider {
       }
       else {
 
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'react');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'react');
 
         $reactSource = file_get_contents(config('react.source'));
         $componentsSource = file_get_contents(config('react.components'));
@@ -50,15 +50,13 @@ class ReactServiceProvider extends ServiceProvider {
           Cache::forever('reactSource', $reactSource);
           Cache::forever('componentsSource', $componentsSource);
         }
-
       }
 
       return new React($reactSource, $componentsSource);
     });
   }
 
-  public function provides()
-  {
+  public function provides() {
     return ['React'];
   }
 
