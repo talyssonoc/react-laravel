@@ -17,7 +17,7 @@ You can see how to install it here: [how to install v8js](install_v8js.md).
 You just need to add this to your `composer.json`'s `"require"`:
 
 ```json
-  "talyssonoc/react-laravel": "0.8"
+  "talyssonoc/react-laravel": "0.9"
 ```
 
 Also you got to set the `minimum-stability` of your `composer.json` to `dev`, adding this:
@@ -33,6 +33,14 @@ Then run:
 ```
 
 After that you should add `'React\ReactServiceProvider'` to your providers at the `config/app.php` file of your Laravel app.
+
+And then run:
+
+```sh
+  php artisan vendor:publish
+```
+
+And the `react.php` file will be available at the `config` folder of your app.
 
 # Usage
 
@@ -76,13 +84,13 @@ You can choose to use any React installation greater than `v0.13.1`, but if you'
 
 # Configurations
 
-You can add settings to `react-laravel` adding this to your `config/app.php` file:
+You can change settings to `react-laravel` at the `config/react.php` file:
 
 ```php
-  'react' => [
+  return [
     'source' => 'path_for_react.js',
     'components' => 'path_for_file_containing_your_components.js'
-  ]
+  ];
 ```
 
 Both of then are optional.
