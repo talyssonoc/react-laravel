@@ -1,8 +1,8 @@
 <?php namespace React;
 
+use Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Cache;
 
@@ -12,8 +12,8 @@ class ReactServiceProvider extends ServiceProvider {
 
   public function boot() {
 
-    Blade::extend(function($view, $compiler) {
-      $pattern = $compiler->createMatcher('react_component');
+    Blade::extend(function($view) {
+      $pattern = $this->createMatcher('react_component');
 
       return preg_replace($pattern, '<?php echo React::render$2; ?>', $view);
     });
@@ -56,9 +56,12 @@ class ReactServiceProvider extends ServiceProvider {
     });
   }
 
+  protected function createMatcher($function) {
+    return '/(?<!\w)(\s*)@' . $function . '(\s*\(.*\))/';
+  }
+
   public function provides() {
     return ['React'];
   }
-
 
 }
