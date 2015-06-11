@@ -1,3 +1,9 @@
+# 0.9.1 (2015-06-11)
+
+Fixes:
+
+- Blade directive now renders properly again
+
 # 0.9 (2015-05-27)
 
 Features:
