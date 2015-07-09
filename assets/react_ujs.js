@@ -23,9 +23,11 @@
       var reactClass;
       var props;
 
+      function index(obj,i) {return obj[i]}
+
       for(var i = 0; i < elements.length; i++) {
         element = elements[i];
-        reactClass = window[element.getAttribute(ReactLaravelUJS.CLASS_NAME_ATTR)];
+        reactClass = element.getAttribute(ReactLaravelUJS.CLASS_NAME_ATTR).split('.').reduce(index, window);
         props = JSON.parse(element.getAttribute(ReactLaravelUJS.PROPS_ATTR));
 
         React.render(React.createElement(reactClass, props), element);
