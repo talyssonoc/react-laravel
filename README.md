@@ -57,9 +57,12 @@ The `@react_component` directive accepts 3 arguments:
 
   //example
   @react_component('Message', [ 'title' => 'Hello, World' ], [ 'prerender' => true ])
+  
+  // example using namespaced component
+  @react_component('Acme.Message', [ 'title' => 'Hello, World' ], [ 'prerender' => true ])
 ```
 
-* `componentName`: Is the name of the global variable that holds your component.
+* `componentName`: Is the name of the global variable that holds your component.  When using [Namespaced Components](https://facebook.github.io/react/docs/jsx-in-depth.html#namespaced-components) you may use dot-notation for the component name.
 * `props`: Associative of the `props` that'll be passed to your component
 * `options`: Associative array of options that you can pass to the `react-laravel`:
   * `prerender`: Tells react-laravel to render your component server-side, and then just _mount_ it on the client-side. Default to __true__.
