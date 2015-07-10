@@ -23,7 +23,9 @@
       var reactClass;
       var props;
 
-      function index(obj,i) {return obj[i]}
+      function index(obj, i) {
+        return obj[i];
+      };
 
       for(var i = 0; i < elements.length; i++) {
         element = elements[i];
