@@ -1,3 +1,13 @@
+# 0.10 (2015-07-13)
+
+Features:
+
+- Components now can be namespaced
+
+Updates:
+
+- Update React from 0.13.1 to 0.13.3
+
 # 0.9.1 (2015-06-11)
 
 Fixes:
