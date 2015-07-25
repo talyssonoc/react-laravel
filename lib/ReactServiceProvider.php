@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Cache;
 
 class ReactServiceProvider extends ServiceProvider {
 
-  protected $defer = true;
-
   public function boot() {
 
     Blade::extend(function($view) {
@@ -59,9 +57,4 @@ class ReactServiceProvider extends ServiceProvider {
   protected function createMatcher($function) {
     return '/(?<!\w)(\s*)@' . $function . '(\s*\(.*\))/';
   }
-
-  public function provides() {
-    return ['React'];
-  }
-
 }
