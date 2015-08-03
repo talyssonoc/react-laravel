@@ -30,37 +30,21 @@
      * @return string            Markup of the rendered component
      */
     public function render($component, $props = null, $options = []) {
-      $options = array_merge($this->defaultOptions, $options);
+      $props           = htmlentities(json_encode($props), ENT_QUOTES);
+      $options         = array_merge($this->defaultOptions, $options);
+      $tag             = $options['tag'];
+      $componentMarkup = '';
 
-      $componentMarkup = $this->getComponentMarkup($component, $props, $options);
-
-      $tag = $options['tag'];
-      $props = htmlentities(json_encode($props), ENT_QUOTES);
+      // Creates the markup of the component
+      if ($options['prerender'] === true) {
+        $componentMarkup = $this->react->setComponent($component, $props)->getMarkup();
+      }
 
       // Gets all values that aren't used as options and map it as HTML attributes
       $htmlAttributes = array_diff_key($options, $this->defaultOptions);
       $htmlAttributesString = $this->arrayToHTMLAttributes($htmlAttributes);
 
       return "<{$tag} data-react-class='{$component}' data-react-props='{$props}' {$htmlAttributesString}>{$componentMarkup}</{$tag}>";
-    }
-
-    /**
-     * Creates the markup of the component
-     * @param  string $component Name of the component
-     * @param  array $props     Associative array of props
-     * @param  array $options   Associative array of options
-     * @return string            The markup of the component, without the wrapper element
-     */
-    private function getComponentMarkup($component, $props, $options) {
-      if($options['prerender'] === true) {
-        $this->react->setComponent($component, $props);
-        $markup = $this->react->getMarkup();
-      }
-      else {
-        $markup = '';
-      }
-
-      return $markup;
     }
 
     /**
