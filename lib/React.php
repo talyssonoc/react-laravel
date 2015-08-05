@@ -30,21 +30,23 @@
      * @return string            Markup of the rendered component
      */
     public function render($component, $props = null, $options = []) {
-      $props           = htmlentities(json_encode($props), ENT_QUOTES);
-      $options         = array_merge($this->defaultOptions, $options);
-      $tag             = $options['tag'];
-      $componentMarkup = '';
+      $options = array_merge($this->defaultOptions, $options);
+      $tag = $options['tag'];
+      $markup = '';
 
       // Creates the markup of the component
       if ($options['prerender'] === true) {
-        $componentMarkup = $this->react->setComponent($component, $props)->getMarkup();
+        $markup = $this->react->setComponent($component, $props)->getMarkup();
       }
+
+      // Pass props back to view as value of `data-react-props`
+      $props = htmlentities(json_encode($props), ENT_QUOTES);
 
       // Gets all values that aren't used as options and map it as HTML attributes
       $htmlAttributes = array_diff_key($options, $this->defaultOptions);
       $htmlAttributesString = $this->arrayToHTMLAttributes($htmlAttributes);
 
-      return "<{$tag} data-react-class='{$component}' data-react-props='{$props}' {$htmlAttributesString}>{$componentMarkup}</{$tag}>";
+      return "<{$tag} data-react-class='{$component}' data-react-props='{$props}' {$htmlAttributesString}>{$markup}</{$tag}>";
     }
 
     /**
