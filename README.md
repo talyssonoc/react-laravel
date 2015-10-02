@@ -17,7 +17,7 @@ You can see how to install it here: [how to install v8js](install_v8js.md).
 You just need to add this to your `composer.json`'s `"require"`:
 
 ```json
-  "talyssonoc/react-laravel": "0.9.1"
+  "talyssonoc/react-laravel": "0.10"
 ```
 
 Also you got to set the `minimum-stability` of your `composer.json` to `dev`, adding this:
@@ -87,7 +87,7 @@ For using the files provided by `react-laravel` and your `components.js` file, a
   <script src="{{ asset('vendor/react-laravel/react_ujs.js') }}"></script>
 ```
 
-You can choose to use any React installation greater than `v0.13.1`, but if you'll use a different version from the one provided by react-laravel, you got to configure it (see bellow).
+If you'll use a different version from the one provided by react-laravel (see `composer.json`), you got to configure it (see bellow).
 
 # Configurations
 
