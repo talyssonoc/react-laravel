@@ -22,7 +22,7 @@ class ReactServiceProvider extends ServiceProvider {
 
     $this->publishes([
       $prev . 'assets'            => public_path('vendor/react-laravel'),
-      $prev . 'node_modules/react/dist/react.js' => public_path('vendor/react-laravel'),
+      $prev . 'node_modules/react/dist' => public_path('vendor/react-laravel'),
     ], 'assets');
 
     $this->publishes([
