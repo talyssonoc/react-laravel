@@ -16,12 +16,15 @@ class ReactServiceProvider extends ServiceProvider {
       return preg_replace($pattern, '<?php echo React::render$2; ?>', $view);
     });
 
+    $prev = __DIR__ . '/../';
+
     $this->publishes([
-      __DIR__ . '/../assets'            => public_path('vendor/react-laravel'),
+      $prev . 'assets'            => public_path('vendor/react-laravel'),
+      $prev . 'node_modules/react/dist' => public_path('vendor/react-laravel'),
     ], 'assets');
 
     $this->publishes([
-      __DIR__ . '/../config/config.php' => config_path('react.php'),
+      $prev . 'config/config.php' => config_path('react.php'),
     ], 'config');
   }
 
