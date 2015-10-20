@@ -8,7 +8,7 @@ define('ENVIRONMENT', 'test');
 
 require_once 'vendor/autoload.php';
 
-$GLOBALS['reactSource'] = file_get_contents(__DIR__ . '/assets/react.js');
+$GLOBALS['reactSource'] = file_get_contents(__DIR__ . '/node_modules/react/dist/react.js');
 $GLOBALS['componentsSource'] = file_get_contents(__DIR__ . '/tests/fixtures/components.js');
 
 class TestHelpers {
