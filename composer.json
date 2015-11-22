@@ -5,7 +5,7 @@
   "keywords": ["react", "reactjs", "laravel"],
   "require": {
     "illuminate/support": "~5.0",
-    "reactjs/react-php-v8js": "dev-master",
+    "reactjs/react-php-v8js": "master",
     "koala-framework/composer-extra-assets": "~1.1"
   },
   "require-dev": {
