@@ -32,7 +32,7 @@
         reactClass = element.getAttribute(ReactLaravelUJS.CLASS_NAME_ATTR).split('.').reduce(index, window);
         props = JSON.parse(element.getAttribute(ReactLaravelUJS.PROPS_ATTR));
 
-        React.render(React.createElement(reactClass, props), element);
+        ReactDOM.render(React.createElement(reactClass, props), element);
       }
     },
 
@@ -40,7 +40,7 @@
       var elements = ReactLaravelUJS.getElements();
 
       for(var i = 0; i < elements.length; i++) {
-        React.unmountComponentAtNode(elements[i]);
+        ReactDOM.unmountComponentAtNode(elements[i]);
       }
     },
 
