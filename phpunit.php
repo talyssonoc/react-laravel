@@ -9,6 +9,8 @@ define('ENVIRONMENT', 'test');
 require_once 'vendor/autoload.php';
 
 $GLOBALS['reactSource'] = file_get_contents(__DIR__ . '/node_modules/react/dist/react.js');
+$GLOBALS['reactSource'] .= file_get_contents(__DIR__ . '/node_modules/react-dom/dist/react-dom.js');
+$GLOBALS['reactSource'] .= file_get_contents(__DIR__ . '/node_modules/react-dom/dist/react-dom-server.js');
 $GLOBALS['componentsSource'] = file_get_contents(__DIR__ . '/tests/fixtures/components.js');
 
 class TestHelpers {

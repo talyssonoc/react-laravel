@@ -21,6 +21,7 @@ class ReactServiceProvider extends ServiceProvider {
     $this->publishes([
       $prev . 'assets'            => public_path('vendor/react-laravel'),
       $prev . 'node_modules/react/dist' => public_path('vendor/react-laravel'),
+      $prev . 'node_modules/react-dom/dist' => public_path('vendor/react-laravel'),
     ], 'assets');
 
     $this->publishes([
@@ -44,8 +45,13 @@ class ReactServiceProvider extends ServiceProvider {
 
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'react');
 
-        $reactSource = file_get_contents(config('react.source'));
+        $reactBaseSource = file_get_contents(config('react.source'));
+        $reactDomSource = file_get_contents(config('react.dom-source'));
+        $reactDomServerSource = file_get_contents(config('react.dom-server-source'));
         $componentsSource = file_get_contents(config('react.components'));
+        $reactSource = $reactBaseSource;
+        $reactSource .= $reactDomSource;
+        $reactSource .= $reactDomServerSource;
 
         if(App::environment('production')) {
           Cache::forever('reactSource', $reactSource);

@@ -3,7 +3,7 @@
 use React\React;
 
 class PrerenderTagTest extends PHPUnit_Framework_TestCase {
-  
+
   protected $react;
 
   public function setUp() {
@@ -25,7 +25,7 @@ class PrerenderTagTest extends PHPUnit_Framework_TestCase {
 
     $expectedElement = TestHelpers::stringToElement('<div><span>Hello, </span><strong>react-laravel</strong></div>');
     $elementWithoutAttributes = TestHelpers::removeAttributes($wrapperElement->childNodes->item(0));
-    
+
     $this->assertEquals(TestHelpers::innerHTML($expectedElement),
                         TestHelpers::innerHTML($elementWithoutAttributes));
   }
