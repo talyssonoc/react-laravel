@@ -97,17 +97,17 @@ You can change settings to `react-laravel` at the `config/react.php` file:
 ```php
   return [
     'source' => 'path_for_react.js',
-    'source-dom' => 'path_for_react-dom.js',
-    'source-dom-server' => 'path_for_react-dom-server.js',
+    'dom-source' => 'path_for_react-dom.js',
+    'dom-server-source' => 'path_for_react-dom-server.js',
     'components' => 'path_for_file_containing_your_components.js'
   ];
 ```
 
-All of then are optional.
+All of them are optional.
 
 * `source`: defaults to `public/vendor/react-laravel/react.js`.
-* `source-dom`: defaults to `public/vendor/react-laravel/react-dom.js`.
-* `source-dom-server`: defaults to `public/vendor/react-laravel/react-dom-server.js`.
+* `dom-source`: defaults to `public/vendor/react-laravel/react-dom.js`.
+* `dom-server-source`: defaults to `public/vendor/react-laravel/react-dom-server.js`.
 * `components`: defaults to `public/js/components.js`
 
 Your `components.js` file should also be included at your view, and all your components must be at the `window` object.
