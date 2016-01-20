@@ -45,7 +45,12 @@
     },
 
     handleEvents: function handleEvents() {
-      document.addEventListener('DOMContentLoaded', ReactLaravelUJS.mountComponents);
+      if (document.readyState == "complete" || document.readyState == "loaded" || document.readyState == "interactive") {
+        ReactLaravelUJS.mountComponents();
+      }
+      else {
+        document.addEventListener('DOMContentLoaded', ReactLaravelUJS.mountComponents);
+      }
       window.addEventListener('unload', ReactLaravelUJS.unmountComponents);
     }
   };
