@@ -57,7 +57,7 @@ The `@react_component` directive accepts 3 arguments:
 
   //example
   @react_component('Message', [ 'title' => 'Hello, World' ], [ 'prerender' => true ])
-  
+
   // example using namespaced component
   @react_component('Acme.Message', [ 'title' => 'Hello, World' ], [ 'prerender' => true ])
 ```
@@ -71,7 +71,7 @@ The `@react_component` directive accepts 3 arguments:
 
 All your components should be inside `public/js/components.js` (you can configure it, see below) and be global.
 
-You must include `react.js` and `react_ujs.js` (in this order) in your view.
+You must include `react.js`, `react-dom.js` and `react_ujs.js` (in this order) in your view. You can concatenate these files together using laravel-elixir.
 
 `react-laravel` provides a ReactJS installation and the `react_us.js` file, they'll be at `public/vendor/react-laravel` folder after you install `react-laravel` and run:
 
@@ -83,6 +83,7 @@ For using the files provided by `react-laravel` and your `components.js` file, a
 
 ```html
   <script src="{{ asset('vendor/react-laravel/react.js') }}"></script>
+  <script src="{{ asset('vendor/react-laravel/react-dom.js') }}"></script>
   <script src="{{ asset('js/components.js') }}"></script>
   <script src="{{ asset('vendor/react-laravel/react_ujs.js') }}"></script>
 ```
@@ -96,13 +97,17 @@ You can change settings to `react-laravel` at the `config/react.php` file:
 ```php
   return [
     'source' => 'path_for_react.js',
+    'source-dom' => 'path_for_react-dom.js',
+    'source-dom-server' => 'path_for_react-dom-server.js',
     'components' => 'path_for_file_containing_your_components.js'
   ];
 ```
 
-Both of then are optional.
+All of then are optional.
 
-* `source`: defaults to `public/vendor/react/laravel/react.js`.
+* `source`: defaults to `public/vendor/react-laravel/react.js`.
+* `source-dom`: defaults to `public/vendor/react-laravel/react-dom.js`.
+* `source-dom-server`: defaults to `public/vendor/react-laravel/react-dom-server.js`.
 * `components`: defaults to `public/js/components.js`
 
 Your `components.js` file should also be included at your view, and all your components must be at the `window` object.
