@@ -13,7 +13,8 @@
   },
   "extra": {
     "require-npm": {
-      "react": "^0.13.3"
+      "react": "^0.14.6",
+      "react-dom": "^0.14.6"
     }
   },
   "authors": [

@@ -9,6 +9,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install libv8-dev g++ cpp valgrind libxml2-dev -y
   - printf "\n" | pecl install v8js-0.1.3
+  - phpenv config-add travis.php.ini
   - travis_retry composer self-update
 
 install:
