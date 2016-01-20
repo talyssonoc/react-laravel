@@ -17,7 +17,7 @@ You can see how to install it here: [how to install v8js](install_v8js.md).
 You just need to add this to your `composer.json`'s `"require"`:
 
 ```json
-  "talyssonoc/react-laravel": "0.10.2"
+  "talyssonoc/react-laravel": "0.11"
 ```
 
 Also you got to set the `minimum-stability` of your `composer.json` to `dev`, adding this:
