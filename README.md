@@ -88,7 +88,7 @@ For using the files provided by `react-laravel` and your `components.js` file, a
   <script src="{{ asset('vendor/react-laravel/react_ujs.js') }}"></script>
 ```
 
-If you'll use a different version from the one provided by react-laravel (see `composer.json`), you got to configure it (see bellow).
+If you'll use a different version from the one provided by react-laravel (see `composer.json`), you got to configure it (see below).
 
 # Configurations
 
