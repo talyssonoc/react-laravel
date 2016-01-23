@@ -6,8 +6,10 @@
   }
 
   class React {
-    private $react;
+    private $react = null;
     private $defaultOptions;
+    private $reactSource;
+    private $componentsSource;
 
     /**
      * Constructor
@@ -15,11 +17,24 @@
      * @param string $componentsSource Source code of file with available components
      */
     public function __construct($reactSource, $componentsSource) {
-      $this->react = new \ReactJS($reactSource, $componentsSource);
+      $this->reactSource = $reactSource;
+      $this->componentsSource = $componentsSource;
       $this->defaultOptions = [
         'prerender' => true,
         'tag' => 'div'
       ];
+    }
+
+    /**
+     * Returns the ReactJS serverside rendering instance associated with this
+     * object.
+     * @return ReactJS The instance, if it does not exist yet, it will be created
+     */
+    private function getReact () {
+      if ($this->react === null) {
+        $this->react = new \ReactJS($this->reactSource, $this->componentsSource);
+      }
+      return $this->react;
     }
 
     /**
@@ -36,7 +51,7 @@
 
       // Creates the markup of the component
       if ($options['prerender'] === true) {
-        $markup = $this->react->setComponent($component, $props)->getMarkup();
+        $markup = $this->getReact()->setComponent($component, $props)->getMarkup();
       }
 
       // Pass props back to view as value of `data-react-props`
