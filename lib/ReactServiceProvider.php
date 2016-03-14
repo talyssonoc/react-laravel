@@ -64,6 +64,6 @@ class ReactServiceProvider extends ServiceProvider {
   }
 
   protected function createMatcher($function) {
-    return '/(?<!\w)(\s*)@' . $function . '(\s*\(.*\))/s';
+    return '/(?<!\w)(\s*)@' . $function . '(\s*\([\s\S]*?\))/';
   }
 }
