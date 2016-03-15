@@ -20,12 +20,6 @@ You just need to add this to your `composer.json`'s `"require"`:
   "talyssonoc/react-laravel": "0.11"
 ```
 
-Also you got to set the `minimum-stability` of your `composer.json` to `dev`, adding this:
-
-```json
-  "minimum-stability": "dev"
-```
-
 Then run:
 
 ```sh
