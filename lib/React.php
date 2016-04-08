@@ -76,4 +76,17 @@
       }
       return $htmlAttributesString;
     }
+
+    /**
+     * Set ReactJS ErrorHandler
+     *
+     * Throws caught V8Js Exception to be caught by default handler (e.g. Whoops)
+     *
+     * @return void;
+     */
+    private function setErrorHandler() {
+      $this->react->setErrorHandler(function(\V8JsException $err) {
+        throw $err;
+      });
+    }
   }
