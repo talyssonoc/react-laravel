@@ -33,6 +33,7 @@
     private function getReact () {
       if ($this->react === null) {
         $this->react = new \ReactJS($this->reactSource, $this->componentsSource);
+        $this->setErrorHandler();
       }
       return $this->react;
     }
