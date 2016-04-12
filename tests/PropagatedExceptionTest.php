@@ -13,10 +13,13 @@ class PropagatedExceptionTest extends PHPUnit_Framework_TestCase {
     );
   }
 
-  /**
-   * @expectedException V8JsException
-   */
+  // Clear and close output buffers opened by thrown error
+  public function tearDown() {
+    ob_end_clean();
+  }
+
   public function testNonExistentComponent() {
+    $this->expectException(V8JsException::class);
     $randomComponentName = uniqid('react');
     $elementString = $this->react->render($randomComponentName);
   }
