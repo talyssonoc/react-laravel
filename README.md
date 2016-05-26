@@ -23,7 +23,8 @@ You just need to add this to your `composer.json`'s `"require"`:
 Also you got to set the `minimum-stability` of your `composer.json` to `dev`, adding this:
 
 ```json
-  "minimum-stability": "dev"
+  "minimum-stability": "dev",
+  "prefer-stable" : true,
 ```
 
 Then run:
