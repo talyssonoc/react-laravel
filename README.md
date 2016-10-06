@@ -23,7 +23,7 @@ Set the `minimum-stability` of your `composer.json` to `dev`, adding this:
 Then run:
 
 ```sh
-  composer require talyssonoc/react-laravel:0.11
+  $ composer require talyssonoc/react-laravel:0.11
 ```
 
 After that you should add this to your providers at the `config/app.php` file of your Laravel app:
