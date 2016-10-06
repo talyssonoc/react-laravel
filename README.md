@@ -14,13 +14,7 @@ You can see how to install it here: [how to install v8js](install_v8js.md).
 
 ## Composer
 
-You just need to add this to your `composer.json`'s `"require"`:
-
-```json
-  "talyssonoc/react-laravel": "0.11"
-```
-
-Also you got to set the `minimum-stability` of your `composer.json` to `dev`, adding this:
+Set the `minimum-stability` of your `composer.json` to `dev`, adding this:
 
 ```json
   "minimum-stability": "dev"
@@ -29,7 +23,7 @@ Also you got to set the `minimum-stability` of your `composer.json` to `dev`, ad
 Then run:
 
 ```sh
-  $ composer update
+  $ composer require talyssonoc/react-laravel:0.11
 ```
 
 After that you should add this to your providers at the `config/app.php` file of your Laravel app:
