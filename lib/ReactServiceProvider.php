@@ -2,9 +2,6 @@
 
 use Blade;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Cache;
 
 class ReactServiceProvider extends ServiceProvider {
 
@@ -32,32 +29,15 @@ class ReactServiceProvider extends ServiceProvider {
   public function register() {
 
     $this->app->bind('React', function() {
+      $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'react');
 
-      if(App::environment('production')
-        && Cache::has('reactSource')
-        && Cache::has('componentsSource')) {
-
-        $reactSource = Cache::get('reactSource');
-        $componentsSource = Cache::get('componentsSource');
-
-      }
-      else {
-
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'react');
-
-        $reactBaseSource = file_get_contents(config('react.source'));
-        $reactDomSource = file_get_contents(config('react.dom-source'));
-        $reactDomServerSource = file_get_contents(config('react.dom-server-source'));
-        $componentsSource = file_get_contents(config('react.components'));
-        $reactSource = $reactBaseSource;
-        $reactSource .= $reactDomSource;
-        $reactSource .= $reactDomServerSource;
-
-        if(App::environment('production')) {
-          Cache::forever('reactSource', $reactSource);
-          Cache::forever('componentsSource', $componentsSource);
-        }
-      }
+      $reactBaseSource = file_get_contents(config('react.source'));
+      $reactDomSource = file_get_contents(config('react.dom-source'));
+      $reactDomServerSource = file_get_contents(config('react.dom-server-source'));
+      $componentsSource = file_get_contents(config('react.components'));
+      $reactSource = $reactBaseSource;
+      $reactSource .= $reactDomSource;
+      $reactSource .= $reactDomServerSource;
 
       return new React($reactSource, $componentsSource);
     });
