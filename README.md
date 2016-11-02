@@ -17,7 +17,8 @@ You can see how to install it here: [how to install v8js](install_v8js.md).
 Set the `minimum-stability` of your `composer.json` to `dev`, adding this:
 
 ```json
-  "minimum-stability": "dev"
+  "minimum-stability": "dev",
+  "prefer-stable" : true,
 ```
 
 Then run:
