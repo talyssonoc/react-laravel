@@ -36,17 +36,12 @@ class ReactServiceProvider extends ServiceProvider {
       $reactDomServerSource = file_get_contents(config('react.dom-server-source'));
 
       $componentsSource = null;
-      $components = config('react.components');
-      if (!is_array($components)) {
-        $components = [$components];
-      }
-      foreach ($components as $component) {
+      foreach ((array) config('react.components') as $component) {
         $componentsSource .= file_get_contents($component);
       }
 
-      $reactSource = $reactBaseSource;
-      $reactSource .= $reactDomSource;
-      $reactSource .= $reactDomServerSource;
+      $reactSource = $reactBaseSource . $reactDomSource . $reactDomServerSource;
+
       return new React($reactSource, $componentsSource);
     });
   }
