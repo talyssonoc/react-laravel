@@ -1,4 +1,5 @@
-<?php namespace React;
+<?php 
+namespace React;
 
 use Blade;
 use Illuminate\Support\ServiceProvider;

@@ -28,7 +28,7 @@
       "facades/"
     ],
     "psr-4": {
-      "React\\": "lib/"
+      "React\\": "src/"
     }
   },
   "minimum-stability": "dev"

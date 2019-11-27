@@ -1,4 +1,5 @@
-<?php namespace React;
+<?php 
+namespace React;
 
   // Fix PHPUnit issue with relative path for `autoload.php`
   if(!defined('ENVIRONMENT') || ENVIRONMENT != 'test') {
